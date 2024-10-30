@@ -22,27 +22,42 @@ int main(){
         cin >> s;
 
         int l = 0, r = 0, d = 0, u = 0;
-        bool ansx = false;
-        bool ansy = false;
         for (int i = 0; i < s.length(); i++){
             if(s[i] == 'L')
-                l--;
+                l++;
             else if(s[i] == 'R')
                 r++;
             else if(s[i] == 'U')
                 u++;
             else
-                d--;
+                 d++;
         }
 
-        if(l >= -px && px < 0|| r >= px && px > 0) px = 0;
-        if(py > 0 &&  u >= py || py < 0 && d <= -py) py = 0;
+        int ansx = 1;
+        int ansy = 1;
 
-        if(!px && !py)
-            cout << "YES" << endl;
+        if(px >= 0 && r >= px){
+            if(py >= 0 && u >= py)
+                cout << "YES\n";
+            else if(py < 0 && d >= abs(py))
+                cout << "YES" << endl;
+            else   
+                cout << "NO" << endl;
+        }
+        else if(px < 0 && l >= abs(px)){
+            if(py >= 0 && u >= py)
+                cout << "YES\n";
+            else if(py < 0 && d >= abs(py))
+                cout << "YES" << endl;
+            else   
+                cout << "NO" << endl;
+        }
         else
             cout << "NO" << endl;
+
     }
+
+
 
     return 0;
 }
