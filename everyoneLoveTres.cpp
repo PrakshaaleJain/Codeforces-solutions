@@ -13,46 +13,22 @@ int main(){
     while (t--){
         int n; 
         cin >> n;
-
-        int arr[n];
-        for (int i = 0; i < n; i++){
-            arr[i] = 6;
-        }
         
-
-        bool ans = false;
-        if(n == 1)
-            cout << -1 << endl;
-        else if(n==2)
-            cout << 66 << endl;
+        string s = "66";
+        string ss = "363";
+        if (n == 1 || n == 3)
+            s = "-1";
+        else if(n%2 == 0){
+            for(int i = 0;i < n - 2; i++)
+                s.insert(s.begin(), '3');
+        }
         else{
-            for (int i = 0; i < n-2; i++){
-            int odd = 0;
-            int even = 0;
-            for (int j = 0; j < n; i++){
-                if(j%2 == 0)    odd += arr[j];
-                else            even += arr[j];
-            }
-
-            if(abs(odd - even)%11 == 0){
-                ans = true;
-                break;
-            }
-            else{
-                arr[i] = 3;
-            }
-            }
-            
-            if(ans)
-                for (int i = 0; i < n; i++){
-                    cout << arr[i];
-                }
-            else
-                cout << -1;
-                
-            cout << endl;
+            s.insert(0, ss); // index used for strings
+            for (int i = 0; i < n - 5; i++)
+                s.insert(s.begin(), '3'); // position used for characters.
         }
         
+        cout << s << endl;
     }
     
     
