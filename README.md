@@ -1,1 +1,1 @@
-This repo is private is created to make myself easy to find the solutions of previously solved codeforces problems easily and from any desktop.
+This repo is created to make myself and for you to find the solutions of codeforces problems easily.
