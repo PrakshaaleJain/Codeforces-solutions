@@ -21,7 +21,28 @@ int main(){
         cin >> s;
         int x = 0, y = 0;
         
-        for (int i = 0; i < n; i++){
+        // for (int i = 0; i < n; i++){
+        //     if(s[i] == 'N')
+        //         y++;
+        //     else if(s[i] == 'S')
+        //         y--;
+        //     else if(s[i] == 'E')
+        //         x++;
+        //     else if(s[i] == 'W')
+        //         x--;
+        // }
+
+        // if(x == 0 || y == 0)    
+        //     cout << "NO" << endl;
+        // else{
+        //     if(a%x == 0 && b%y == 0)
+        //         cout << "YES" << endl;
+        //     else
+        //         cout << "NO" << endl;
+        // }
+
+        bool ans = false;
+        for (int i = 0; i < 100; i++){
             if(s[i] == 'N')
                 y++;
             else if(s[i] == 'S')
@@ -30,19 +51,19 @@ int main(){
                 x++;
             else if(s[i] == 'W')
                 x--;
+            
+            if(x == a && y == b){
+                cout << "YES" << endl;
+                break;
+                ans = true;
+            }
         }
 
-        if(x == 0 || y == 0)    
+        if(ans == false){
             cout << "NO" << endl;
-        else{
-            if(a%x == 0 && b%y == 0 && x != 1 && y != 1)
-                cout << "YES" << endl;
-            else
-                cout << "NO" << endl;
         }
-        
     }
-    
+
     
     return 0;
 }
