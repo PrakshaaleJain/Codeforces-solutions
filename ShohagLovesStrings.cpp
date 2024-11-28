@@ -21,7 +21,31 @@ int main(){
         int l = s.length();
         bool ans = false;
 
-        if(l != 1){
+        // if(l != 1){
+        //     for (int i = 1; i < l; i++){
+        //         if(s[i] == s[i-1]){
+        //             cout << s.substr(i-1,2) << endl;
+        //             ans = true;
+        //             break;
+        //         }
+        //     }
+
+        //     if(ans == false){
+        //         for (int i = 2; i < l; i++){
+        //             if(s[i] != s[i-1] && s[i] != s[i-2] && s[i-1] != s[i-2]){
+        //                 cout << s.substr(i-2,3) << endl;
+        //                 break;
+        //             }
+        //         }
+        //     }
+        // }
+        // else
+        //     cout << -1 << endl;
+
+        if(l == 1){
+            cout << -1 << endl;
+        }
+        else{
             for (int i = 1; i < l; i++){
                 if(s[i] == s[i-1]){
                     cout << s.substr(i-1,2) << endl;
@@ -31,16 +55,9 @@ int main(){
             }
 
             if(ans == false){
-                for (int i = 2; i < l; i++){
-                    if(s[i] != s[i-1] && s[i] != s[i-2] && s[i-1] != s[i-2]){
-                        cout << s.substr(i-2,3) << endl;
-                        break;
-                    }
-                }
+                cout << -1 << endl;
             }
         }
-        else
-            cout << -1 << endl;
     }   
     
     
