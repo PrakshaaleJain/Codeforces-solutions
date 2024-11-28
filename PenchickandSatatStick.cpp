@@ -33,8 +33,6 @@ int main(){
             }
         }
         (ans) ? cout << "YES" << endl : cout  << "NO" << endl;
-        
-        
     }
     
     
