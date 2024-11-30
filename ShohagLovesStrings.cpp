@@ -18,47 +18,30 @@ int main(){
         string s;
         cin >> s;
 
-        int l = s.length();
+        int n = s.length();
         bool ans = false;
 
-        // if(l != 1){
-        //     for (int i = 1; i < l; i++){
-        //         if(s[i] == s[i-1]){
-        //             cout << s.substr(i-1,2) << endl;
-        //             ans = true;
-        //             break;
-        //         }
-        //     }
-
-        //     if(ans == false){
-        //         for (int i = 2; i < l; i++){
-        //             if(s[i] != s[i-1] && s[i] != s[i-2] && s[i-1] != s[i-2]){
-        //                 cout << s.substr(i-2,3) << endl;
-        //                 break;
-        //             }
-        //         }
-        //     }
-        // }
-        // else
-        //     cout << -1 << endl;
-
-        if(l == 1){
-            cout << -1 << endl;
+        for (int i = 0; i < n - 1; i++){
+            if(s[i] == s[i+1]){
+                cout << s.substr(i,2) << endl;
+                ans = true;
+                break;
+            }
         }
-        else{
-            for (int i = 1; i < l; i++){
-                if(s[i] == s[i-1]){
-                    cout << s.substr(i-1,2) << endl;
+
+        if(ans == false){
+            for (int i = 0; i < n - 2; i++){
+                if(s[i] != s[i+1] && s[i] != s[i+2] && s[i+1] != s[i+2]){
+                    cout << s.substr(i,3) << endl;
                     ans = true;
                     break;
                 }
             }
-
-            if(ans == false){
-                cout << -1 << endl;
-            }
         }
-    }   
+
+        if(ans == false)
+            cout << -1 << endl;
+    }  
     
     
     return 0;
