@@ -1,0 +1,1 @@
+{"name":"Local: BowlingFrame","url":"/home/prakshaale/Desktop/Codeforces/Codeforces-solutions/BowlingFrame.cpp","tests":[{"id":1733073154741,"input":"4\n1 2\n3 2\n3 3\n12 0\n","output":"2\n2\n3\n4\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/prakshaale/Desktop/Codeforces/Codeforces-solutions/BowlingFrame.cpp","group":"local","local":true}
