@@ -18,16 +18,14 @@ int main(){
         int n;
         cin >> n;
 
-        int ans = 0;
-        if(n == 1)
-            ans = 1;
-        else{
-            ans = 1;
+        int ans = 1;
+      
+       
             int l = 0;
             for (int r = l + 1; r < n; r = 2*r + 2){
                 ans++;
             }
-        }
+        
         cout << ans << endl;
         
     }
