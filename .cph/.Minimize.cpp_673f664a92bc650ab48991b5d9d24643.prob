@@ -1,0 +1,1 @@
+{"name":"Local: Minimize","url":"c:\\Users\\HP\\Desktop\\Codeforces\\Codeforces-solutions\\Minimize.cpp","tests":[{"id":1734217828973,"input":"3\n1 2\n3 10\n5 5\n","output":"1\n7\n0\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\HP\\Desktop\\Codeforces\\Codeforces-solutions\\Minimize.cpp","group":"local","local":true}
