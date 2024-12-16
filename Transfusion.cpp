@@ -17,46 +17,31 @@ int main(){
     while(t--){
         int n;
         cin >> n;
-
-        vector<int> a(n);
-        int sum = 0;
-        for(int i = 0; i < n; i++){
-            cin >> a[i];
+        vector<int> arr(n);
+        
+        for (int i = 0; i < n; i++){
+            cin >> arr[i];
         }
 
-        bool ans = true;
-        if(n%2 == 0){
-            for(int i = 0; i < n/2 - 1; i++){
-                if(a[i] > a[i+1]){
-                    ans = false;
-                    break;
-                }
-
-                if(a[n - 1 - i] > a[n - 2 - i]){
-                    ans = false;
-                    break;
-                }
-            }
+        lli odd = 0, even = 0;
+        for (int i = 0; i < n; i++){
+            if(i%2 == 0)
+                even += arr[i];
+            else
+                odd += arr[i];
         }
-        else{
-            for (int i = 0; i < n/2; i++){
-                if(a[i] < a[i + 1]){
-                    ans = false;
-                    break;
-                }
-
-                if(a[n - 1 - i] > a[n - 2 - i]){
-                    ans = false;
-                    break;
-                }
-            }
-            
+        
+        lli odd_len = n / 2, even_len = n / 2;
+        if(n%2 == 1)
+            even_len++;
+        
+        
+        if(even % even_len != 0 || odd % odd_len != 0 || even / even_len != odd / odd_len){
+            cout << "NO" << endl;
+            continue;
         }
 
-
-
-        (ans) ? cout << "YES" << endl : cout << "NO" << endl;
-
+        cout << "YES" << endl;
     }
     
     return 0;
