@@ -5,29 +5,6 @@ using namespace std;
 #define ull unsigned long long
 #define pb push_back
 
-pair<char, int> findEntryWithLargestValue(map<char, int> sampleMap){ 
-
-    pair<char, int> entryWithMaxValue = make_pair(0, 0); 
- 
-    map<char, int>::iterator currentEntry; 
-    for (currentEntry = sampleMap.begin(); 
-        currentEntry != sampleMap.end(); 
-        ++currentEntry) { 
-            
-        if (currentEntry->second 
-            > entryWithMaxValue.second) { 
- 
-            entryWithMaxValue 
-                = make_pair( 
-                    currentEntry->first, 
-                    currentEntry->second); 
-        } 
-    } 
- 
-    return entryWithMaxValue; 
-}
-
-
 int main(){
     #ifndef ONLINE_JUDGE
         freopen("input.txt", "r", stdin);
@@ -42,74 +19,17 @@ int main(){
         string s;
         cin >> n >> s;
 
-        // string s1 = s;
-        // sort(s1.begin(), s1.end());
-        // int cnt = 0;
-
-        // map<char, int>mp;
-        // for (int i = 0; i < n; i++){
-        //     mp[s[i]]++;
-        // }
-
-        // char cmin, cmax;
-        // int min = 0;
-        // int maxi = 10;
-        // for (auto &m : mp){
-        //     if(m.second > min){
-        //         min = m.second;
-        //         cmin = m.first;
-        //     }
-        //     if(m.second < maxi){
-        //         maxi = m.second;
-        //         cmax = m.first;
-        //     }
-        // }
-
-        // if(min == maxi){
-        //     for (int i = 0; i < n; i++){
-        //         if(s[i] != cmax){
-        //             s[i] = cmax;
-        //             break;
-        //         }
-        //     }
-        // }
-        // else{
-        //     for (int i = 0; i < n; i++){
-        //         if(cmin == s[i]){
-        //             s[i] = cmax;
-        //             break;
-        //         }
-        //     }
-        // }
-        // cout << s << endl;     
-
-        unordered_map<char,int>mp;
-        for (int i = 0; i < n; i++){
-            mp[s[i]]++;
+        vector<int> occ(26);
+        for (int i=0; i<n; i++)
+            occ[s[i] - 'a'] += 1;
+        pair<pair<int,char>,int> low, high;
+        low = high = {{occ[s[0] - 'a'], s[0]}, 0};
+        for (int i=1; i<n; i++) {
+            low = min(low, {{occ[s[i] - 'a'], s[i]}, i});
+            high = max(high, {{occ[s[i] - 'a'], s[i]}, i});
         }
-        
-
-        pair<char,int> max, min;
-        int mm = 1 , mini = n - 1;
-        for(auto &m : mp){
-            if(m.second > mm){
-                mm = m.second;
-                max = make_pair(m.first, mm);
-            }
-            if(m.second < mini){
-                mini = m.second;
-                min = make_pair(m.first, mini);
-            }
-        }
-
-        for (int i = 0; i < n; i++){
-            if(min.first == s[i]){
-                s[i] = max.first;
-            }
-        }
-        
-
-        cout << s << endl;
+        s[low.second] = s[high.second];
+        cout << s << "\n";
 
 
 
