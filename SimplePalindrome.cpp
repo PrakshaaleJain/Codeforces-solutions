@@ -20,10 +20,17 @@ int main(){
 
         string vowel = "aeiou";
         if(n > 5){
-            cout << t << endl;
+            string ans = "";
+            int d = n / 5, r = n%5;
+            for(int i =0; i < 5; i++){
+                ans += string(d, vowel[i]);
+                if(i < r) ans += vowel[i];
+            }
+
+            cout << ans << endl;
         }
         else
-            cout << vowel.substr(0,n);
+            cout << vowel.substr(0,n) << endl;
     }
 
     
