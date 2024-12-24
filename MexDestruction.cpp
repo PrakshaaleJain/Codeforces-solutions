@@ -30,7 +30,7 @@ int main(){
 
         if(l > r){
             cout << 0 << endl;
-            continue;
+            continue;   
         }
 
         int mini = INT_MAX;

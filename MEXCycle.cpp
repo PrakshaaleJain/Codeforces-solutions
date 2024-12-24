@@ -25,9 +25,18 @@ int main(){
                 v.pb(y);
             else if(d == y)
                 v.pb(x);
-            else{
-                
-            }
+            
+            if(d == 1 && x != n || y != n)
+                v.pb(n); 
+            else if(d == n && x != 1 || y != 1)
+                v.pb(1);
+            x`  
+
+
+
+
+            
+
         }
 
     }
