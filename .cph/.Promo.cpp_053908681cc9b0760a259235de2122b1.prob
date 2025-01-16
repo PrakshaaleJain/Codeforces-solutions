@@ -1,0 +1,1 @@
+{"name":"Local: Promo","url":"c:\\Users\\HP\\OneDrive\\Desktop\\Codeforces\\Codeforces-solutions\\Promo.cpp","tests":[{"id":1737031854591,"input":"5 3\n5 3 1 5 2\n3 2\n1 1\n5 3\n","output":"8\n5\n6\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\HP\\OneDrive\\Desktop\\Codeforces\\Codeforces-solutions\\Promo.cpp","group":"local","local":true}
