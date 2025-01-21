@@ -17,19 +17,20 @@ void solve(){
 
     for (int i = 0; i < 100; i++) {
         for (char dir : s) {
-            if (dir == 'N') x++;
-            else if (dir == 'S') x--;
-            else if (dir == 'E') y++;
-            else if (dir == 'W') y--;
+            if (dir == 'N') y++;
+            else if (dir == 'S') y--;
+            else if (dir == 'E') x++;
+            else if (dir == 'W') x--;
 
             if (x == a && y == b) {
                 cout << "YES" << endl;
-                return ;
+                return;
             }
         }
     }
 
     cout << "NO" << endl;
+    return;
 }
 
 

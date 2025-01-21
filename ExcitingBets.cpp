@@ -11,22 +11,22 @@ int main(){
         freopen("output.txt","w",stdout);  
     #endif
     
+    ios_base::sync_with_stdio(false);  
+    cin.tie(nullptr); 
+
+
     int  t;
     cin >> t;
 
     while(t--){
-        int l,r,L,R;
-        cin >> l >> r >> L >> R;
-
-        int ans = 0;
-        if(r <= L){
-            ans = 1;
-        }
-        else if(L < r &&  <= ){
-            
+        lli a,b;
+        cin >> a >> b;
+        lli diff = abs(a - b);
+        if(diff == 0){
+            cout << 0 << " " << 0 << endl;
         }
         else{
-
+            cout << diff << " " << min(a%diff, diff - (a%diff)) << endl;
         }
     }
     
