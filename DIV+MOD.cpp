@@ -32,24 +32,41 @@ int main(){
 
 
         // f1 is when x --> n*a => x%a == 0
-        lli f1 = 0, k = 0;
-        for(int i = r; i <= l; i++){
-            if(i%a == 0){
-                f1 += i/a;
-                k = i;
-                break;
-            }
-        }
+        // lli f1 = 0, k = 0;
+        // for(int i = r; i <= l; i++){
+        //     if(i%a == 0){
+        //         f1 += i/a;
+        //         k = i;
+        //         break;
+        //     }
+        // }
 
 
         // f2 id when x --> n*(a-1) + (a-1);
-        lli f2 = k - 1/a;
-        f2 += a - 1;
-        cout << max(f1, f2) << endl;
+        // lli f2 = k - 1/a;
+        // f2 += a - 1;
+        // cout << max(f1, f2) << endl;
 
 
 
         // cout << maxi << endl;
+
+        // for(lli i = r; i >= l; i--){
+        //     if(i%(a-1) == 0){
+        //         ans += i/(a-1);
+        //         ans -= floor(i/(float)(a*(a-1)));
+        //         break;
+        //     }
+        // }
+
+        lli ans = r / a + r % a;
+        lli m = r / a * a - 1;
+        if(m >= l) ans = max(ans, m / a + m % a); 
+
+
+        cout << ans << endl;
+
+
 
         
         
