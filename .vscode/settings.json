@@ -16,6 +16,7 @@
         "vector": "cpp",
         "*.tcc": "cpp",
         "cmath": "cpp",
-        "ostream": "cpp"
+        "ostream": "cpp",
+        "future": "cpp"
     }
 }
