@@ -28,7 +28,7 @@ int main(){
 
         int m;
         cin >> m;
-        while(m--){
+        while(m--)  {
             string s;
             cin >> s;
 
@@ -41,30 +41,19 @@ int main(){
             unordered_map<int,char> atos;
             bool flag = true;
 
-            // map from array to string;
-            for(int i = 0; i < n; i++){
-                atos[arr[i]] = s[i];
-            }
-
-            // map from string to array
-            for(int i = 0; i < n; i++){
-                stoa[s[i]] = arr[i];
-            }
-
-            // checking from array to string;
-            // for(auto i : atos){
-            //     int num = i.first; // true values
-            //     char c = i.second; // true values
-            //     char cstar = atos[num];
-            //     int numstar = stoa[c];
-
-
-            //     if(c != cstar || num != numstar){
+            // bool ans = true;
+            // for(int i = 0; i < n; i++){
+            //     if(stoa.find(s[i]) == stoa.end() && atos.find(arr[i]) == atos.end()){
+            //         stoa[s[i]] = arr[i];
+            //         atos[arr[i]] = s[i];
+            //     }
+            //     else if((stoa.find(s[i]) == stoa.end() && atos.find(arr[i]) != atos.end()) || (stoa.find(s[i]) != stoa.end() && atos.find(arr[i]) == atos.end())){
             //         flag = false;
             //         break;
             //     }
-                
-            // }
+
+            // }            
+
 
             for (int i = 0; i < n; i++) {
                 if ((atos.count(arr[i]) && atos[arr[i]] != s[i]) || (stoa.count(s[i]) && stoa[s[i]] != arr[i])) {
