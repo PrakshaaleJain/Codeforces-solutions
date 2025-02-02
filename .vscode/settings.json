@@ -17,6 +17,7 @@
         "*.tcc": "cpp",
         "cmath": "cpp",
         "ostream": "cpp",
-        "future": "cpp"
+        "future": "cpp",
+        "functional": "cpp"
     }
 }
