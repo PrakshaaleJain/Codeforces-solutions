@@ -77,7 +77,7 @@ int main(){
                     found = true;
                     break;
                 }
-            }
+            } 
 
             if(found)
                 cout << 1 << endl;
