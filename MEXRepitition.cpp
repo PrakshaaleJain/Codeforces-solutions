@@ -21,26 +21,23 @@ int main(){
     cin >> t;
 
     while(t--){
-        int x;
-        cin >> x;
+        int n,k;
+        cin >> n >> k;
 
-        // int a = (n%2 == 0) ? n-1 : n-2;
-        // int b = a ^ n;
+        vector<int> arr(n);
+        forn(i,n)
+            cin >> arr[i];
 
-        // if(n+a > b && n + b > a && a + b > n)
-        //     cout << a << endl;
-        // else    cout << -1 << endl;
-
-        int ans = -1;
-        int y = 0;
-        forn(i,30){
-            forn(j,30){
-                y = (1 << i) | (1 << j);
-            }
-            if (y < x && x + y > (x ^ y) && y + (x ^ y) > x)
-                ans = y;
+        int mini =INT_MAX, maxi = INT_MIN;
+        forn(i,n){
+            mini = min(mini, arr[i]);
+            maxi = max(maxi, arr[i]);
         }
-        cout << ans << endl;
+
+        int mex = -1;
+        for(int i = 0; i < n; i++){
+            
+        }
     }
     
     return 0;
