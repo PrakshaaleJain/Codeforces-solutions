@@ -29,70 +29,38 @@ int main(){
             continue;
         }
 
-        lli l = x / __gcd(x,y) * y;
-        lli totalX  = n / x;
-        lli totalY  = n / y;
-        lli totalXY = n / l;
-        lli cntX = totalX - totalXY;
-        lli cntY = totalY - totalXY;
+        lli l = x * y / __gcd(x,y);  // lcm
+        lli num_x = n, num_y = 1;
+        lli num_pos_x = n/x, num_pos_y = n/y;
+        lli overlap = n / l;
+
+        lli left_pos_y = num_pos_y - overlap;
+        lli left_pos_x = num_pos_x - overlap;
+        lli sum = 0;
+
+        // forn(i,left_pos_x){
+        //     sum += num_x;
+        //     num_x--;
+        // }
+
+
+
         
-        // for(int i = x; i <= n; i+=x){
-            
-        //     if(i%y != 0){
-            //         a[i-1] = maxi;
-            //         maxi--;
-            //     }
-            //     else{
-                //         a[i-1] = avg;
-                //         avg++;
-                //     }
-                // }
-        vector<lli> a(n,0);
-        lli high = n;
-        for (lli i = x; i <= n; i += x) {
-            if (i % y != 0) {
-                a[i-1] = high--;
-            }
-        }
-
-        // for(int i = y; i <= n; i+=y){
-            
-        //     if(i%x != 0){
-        //         a[i-1] = mini;
-        //         mini++;
-        //     }
-        //     else continue;
+        // forn(i,left_pos_y){
+        //     sum -= num_y;
+        //     num_y++;
         // }
 
-        lli low = 1;
-        for (lli i = y; i <= n; i += y) {
-            if (i % x != 0) {
-                a[i-1] = low++;
-            }
-        }
+        // cout << sum << endl;
+
+        lli sum_x = (1LL * 2 * n - left_pos_x + 1) * left_pos_x / 2;
+        lli sum_y = (1LL * left_pos_y + 1) * left_pos_y / 2;
+        sum = sum_x - sum_y;
+
+        cout << sum << endl;
 
 
-        lli mid = low; 
-        for (lli i = l; i <= n; i += l) {
-            a[i-1] = mid++;
-        }
 
-        // int ans = 0;
-        // for(int i = 0; i < n; i++){
-        //     if((i+1)%y == 0)
-        //         ans -= a[i];
-        //     else    ans += a[i];
-        // }
-
-        lli ans = 0;
-        for (int i = 0; i < n; i++){
-            if ((i+1) % y == 0) 
-                ans -= a[i];
-            else 
-                ans += a[i];
-        }
-
-        cout << ans << endl;
 
 
     }
