@@ -18,6 +18,7 @@
         "cmath": "cpp",
         "ostream": "cpp",
         "future": "cpp",
-        "functional": "cpp"
+        "functional": "cpp",
+        "iosfwd": "cpp"
     }
 }
