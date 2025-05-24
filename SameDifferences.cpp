@@ -64,53 +64,38 @@ ostream& operator<<(ostream &ostream, const vector<T> &c) { for (auto &it : c) c
 /************************************************** CODE HERE *****************************************************/
 
 void solve(){
-	string s;
-    cin >> s;
+	int n;
+    cin >> n;
 
-    ll sum = 0;
-    forn(i, s.length()){
-        sum += s[i] - '0';
+    vector<int> arr(n);
+    forn(i,n)   cin >> arr[i];
+
+    map<int,int> diff;
+    // vector<int> diff_vec(n-1);
+    // for(int i= 1; i < n; i++) 
+    //     diff_vec[i-1] = arr[i] - arr[i-1];
+
+    ll ans = 0;
+    for(int i = 0; i < n; i++){
+        // for(int j = i + 1; j < n; j++){
+        //     int d = arr[j] - arr[i];
+        //     if(d == j - i){
+        //         diff[d]++;
+        //     }
+        // }
+
+        arr[i] -= i;
+        ans += diff[arr[i]];
+        diff[arr[i]]++;
     }
 
-    // if(sum%9 == 0){
-    //     cout << "YES" << endl;
-    //     return;
+    // int sum = 0;
+    // for(auto x : diff){
+    //     sum += x.second;
     // }
+    // cout << sum << endl;
 
-    int n1 = 0, n2 = 0, n3 = 0;
-    forn(i,s.length()){
-        if(s[i] == '1') n1++;
-        else if(s[i] == '2') n2++;
-        else if(s[i] == '3') n3++;
-    }
-
-    // int left = sum%9;
-    // if((9-left)%2){ // make odd 
-    //     if(3*n2 >= n1)
-    //         cout << "YES" << endl;
-    //     else
-    //         cout << "NO" << endl;
-    //     return;
-
-    // }
-    // else{
-    //     if(1LL*2*n2 >=  9 - left){
-    //         cout << "YES" << endl;
-    //         return;
-    //     }
-    // }
-
-    // cout << "NO" << endl;
-
-    for(int i = 0; i <= min(10,n2); i++){
-        for(int j = 0; j <= min(10,n3); j++){
-            if((sum + i*2  + j*6)%9 == 0){
-                cout << "YES" << endl;
-                return;
-            }
-        }
-    }
-    cout << "NO" << endl;
+    cout << ans << endl;
 
 }
 

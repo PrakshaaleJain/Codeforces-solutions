@@ -63,54 +63,53 @@ ostream& operator<<(ostream &ostream, const vector<T> &c) { for (auto &it : c) c
 
 /************************************************** CODE HERE *****************************************************/
 
+bool allCharactersSame(string s){
+    return (s.find_first_not_of(s[0]) == string::npos);
+}
+
 void solve(){
-	string s;
+    int n;
+    char c;
+    cin >> n >> c;
+
+    string s;
     cin >> s;
-
-    ll sum = 0;
-    forn(i, s.length()){
-        sum += s[i] - '0';
+        
+    if(n == 1){
+        if(s[0] == c)   cout << 0 << endl;
+        else            cout << 1 << endl;
+        return;
     }
 
-    // if(sum%9 == 0){
-    //     cout << "YES" << endl;
-    //     return;
-    // }
-
-    int n1 = 0, n2 = 0, n3 = 0;
-    forn(i,s.length()){
-        if(s[i] == '1') n1++;
-        else if(s[i] == '2') n2++;
-        else if(s[i] == '3') n3++;
+    if(allCharactersSame(s)){
+        cout << 0 << endl;
+        return;
     }
 
-    // int left = sum%9;
-    // if((9-left)%2){ // make odd 
-    //     if(3*n2 >= n1)
-    //         cout << "YES" << endl;
-    //     else
-    //         cout << "NO" << endl;
-    //     return;
-
-    // }
-    // else{
-    //     if(1LL*2*n2 >=  9 - left){
-    //         cout << "YES" << endl;
-    //         return;
-    //     }
-    // }
-
-    // cout << "NO" << endl;
-
-    for(int i = 0; i <= min(10,n2); i++){
-        for(int j = 0; j <= min(10,n3); j++){
-            if((sum + i*2  + j*6)%9 == 0){
-                cout << "YES" << endl;
-                return;
+    vector<int>
+    bool ok = true;
+    if(!ok){
+        for(int i  = 1; i < n+1; i++){
+            ok = true;
+            for(int j = i; j < n+1; j++){
+                ok &= (s[j-1] == c);
+                j += i-1;
+            }
+            if(ok){
+                ans.pb(i);
+                break;
             }
         }
+        if(!ok){
+            ans.pb(n);
+            ans.pb(n-1);
+        }
     }
-    cout << "NO" << endl;
+    cout<<ans.size()<<"\n";
+    for(auto x:ans){
+        cout<<x<<" ";
+    }
+    cout<<"\n";
 
 }
 

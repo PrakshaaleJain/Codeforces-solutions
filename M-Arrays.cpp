@@ -64,54 +64,34 @@ ostream& operator<<(ostream &ostream, const vector<T> &c) { for (auto &it : c) c
 /************************************************** CODE HERE *****************************************************/
 
 void solve(){
-	string s;
-    cin >> s;
+    int n,m;
+    cin >> n >> m;
 
-    ll sum = 0;
-    forn(i, s.length()){
-        sum += s[i] - '0';
-    }
+    vector<int> arr(n);
+    forn(i,n)   cin >> arr[i];
 
-    // if(sum%9 == 0){
-    //     cout << "YES" << endl;
-    //     return;
-    // }
+    map<int,int> rem;
+    forn(i,n)
+        rem[arr[i]%m]++;
 
-    int n1 = 0, n2 = 0, n3 = 0;
-    forn(i,s.length()){
-        if(s[i] == '1') n1++;
-        else if(s[i] == '2') n2++;
-        else if(s[i] == '3') n3++;
-    }
+    ll ans = 0;
 
-    // int left = sum%9;
-    // if((9-left)%2){ // make odd 
-    //     if(3*n2 >= n1)
-    //         cout << "YES" << endl;
-    //     else
-    //         cout << "NO" << endl;
-    //     return;
+    for(auto r : rem){
+        if(r.first == 0)    ans++;
+        else if (2 * r.first == m)  ans++;
 
-    // }
-    // else{
-    //     if(1LL*2*n2 >=  9 - left){
-    //         cout << "YES" << endl;
-    //         return;
-    //     }
-    // }
-
-    // cout << "NO" << endl;
-
-    for(int i = 0; i <= min(10,n2); i++){
-        for(int j = 0; j <= min(10,n3); j++){
-            if((sum + i*2  + j*6)%9 == 0){
-                cout << "YES" << endl;
-                return;
-            }
+        else if (rem.find(m - r.first) == rem.end() || 2 * r.first < m){
+            int num = r.second, val = rem[m - r.first];
+            ans += 1 + max(0, abs(num - val) - 1);
         }
     }
-    cout << "NO" << endl;
 
+
+
+
+    cout << ans << endl;
+
+     
 }
 
 /************************************************** ENDS HERE *****************************************************/

@@ -64,53 +64,39 @@ ostream& operator<<(ostream &ostream, const vector<T> &c) { for (auto &it : c) c
 /************************************************** CODE HERE *****************************************************/
 
 void solve(){
-	string s;
-    cin >> s;
+	int n,x,y;
+    cin >> n >> x >> y;
+    // fixing indexing;
+    x--;
+    y--;
+    vector<int> arr(n,1);
+    
+    // fixing prefix
+    // forn(i, x) arr[i] = 1;
 
-    ll sum = 0;
-    forn(i, s.length()){
-        sum += s[i] - '0';
-    }
-
-    // if(sum%9 == 0){
-    //     cout << "YES" << endl;
-    //     return;
+    // for (int i = x; i < n; i++){
+    //     if((i-x)%2 == 1) arr[i] = 1;
+    //     else        arr[i] = -1;
     // }
-
-    int n1 = 0, n2 = 0, n3 = 0;
-    forn(i,s.length()){
-        if(s[i] == '1') n1++;
-        else if(s[i] == '2') n2++;
-        else if(s[i] == '3') n3++;
+    for(int i = x+1; i < n; i++){
+        if((i-x-1)%2 == 0)    arr[i] = -1;
+        else    arr[i] = 1;
     }
+    // fixing suffix
 
-    // int left = sum%9;
-    // if((9-left)%2){ // make odd 
-    //     if(3*n2 >= n1)
-    //         cout << "YES" << endl;
-    //     else
-    //         cout << "NO" << endl;
-    //     return;
-
-    // }
-    // else{
-    //     if(1LL*2*n2 >=  9 - left){
-    //         cout << "YES" << endl;
-    //         return;
-    //     }
-    // }
-
-    // cout << "NO" << endl;
-
-    for(int i = 0; i <= min(10,n2); i++){
-        for(int j = 0; j <= min(10,n3); j++){
-            if((sum + i*2  + j*6)%9 == 0){
-                cout << "YES" << endl;
-                return;
-            }
-        }
+    for(int i = y-1; i >= 0; i--){
+        if((i - y + 1)%2 == 0)  arr[i] = -1;
+        else    arr[i] = 1;
     }
-    cout << "NO" << endl;
+    // for(int i = y-1; i < x; i++)
+    //     arr[i] = 1;
+    
+
+    forn(i,n)
+        cout << arr[i] << " ";
+    cout << endl;
+    return;
+    
 
 }
 

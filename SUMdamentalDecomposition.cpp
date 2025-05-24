@@ -64,54 +64,7 @@ ostream& operator<<(ostream &ostream, const vector<T> &c) { for (auto &it : c) c
 /************************************************** CODE HERE *****************************************************/
 
 void solve(){
-	string s;
-    cin >> s;
-
-    ll sum = 0;
-    forn(i, s.length()){
-        sum += s[i] - '0';
-    }
-
-    // if(sum%9 == 0){
-    //     cout << "YES" << endl;
-    //     return;
-    // }
-
-    int n1 = 0, n2 = 0, n3 = 0;
-    forn(i,s.length()){
-        if(s[i] == '1') n1++;
-        else if(s[i] == '2') n2++;
-        else if(s[i] == '3') n3++;
-    }
-
-    // int left = sum%9;
-    // if((9-left)%2){ // make odd 
-    //     if(3*n2 >= n1)
-    //         cout << "YES" << endl;
-    //     else
-    //         cout << "NO" << endl;
-    //     return;
-
-    // }
-    // else{
-    //     if(1LL*2*n2 >=  9 - left){
-    //         cout << "YES" << endl;
-    //         return;
-    //     }
-    // }
-
-    // cout << "NO" << endl;
-
-    for(int i = 0; i <= min(10,n2); i++){
-        for(int j = 0; j <= min(10,n3); j++){
-            if((sum + i*2  + j*6)%9 == 0){
-                cout << "YES" << endl;
-                return;
-            }
-        }
-    }
-    cout << "NO" << endl;
-
+	int n;
 }
 
 /************************************************** ENDS HERE *****************************************************/

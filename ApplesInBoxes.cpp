@@ -64,53 +64,42 @@ ostream& operator<<(ostream &ostream, const vector<T> &c) { for (auto &it : c) c
 /************************************************** CODE HERE *****************************************************/
 
 void solve(){
-	string s;
-    cin >> s;
+	int n,k;
+    cin >> n >> k;
+
+    vector<int> arr(n);
+    forn(i,n)   cin >> arr[i];
 
     ll sum = 0;
-    forn(i, s.length()){
-        sum += s[i] - '0';
+    forn(i,n)   sum += arr[i];
+
+    sort(arr.begin(), arr.end());
+    arr[n-1]--;
+    sort(arr.begin(), arr.end());
+    
+    if(sum%2 == 0 || arr[n-1] - arr[0] > k) {
+        cout << "Jerry" << endl;
+        return;
     }
+    cout << "Tom" << endl;
 
-    // if(sum%9 == 0){
-    //     cout << "YES" << endl;
-    //     return;
-    // }
+    // int steps = 0;
+    // while(1){
+    //     int maxi = *max_element(arr.begin(), arr.end());
+    //     int mini = *min_element(arr.begin(), arr.end());
+        
+    //     auto ma = find(arr.begin(), arr.end(), maxi);
 
-    int n1 = 0, n2 = 0, n3 = 0;
-    forn(i,s.length()){
-        if(s[i] == '1') n1++;
-        else if(s[i] == '2') n2++;
-        else if(s[i] == '3') n3++;
-    }
-
-    // int left = sum%9;
-    // if((9-left)%2){ // make odd 
-    //     if(3*n2 >= n1)
-    //         cout << "YES" << endl;
-    //     else
-    //         cout << "NO" << endl;
-    //     return;
-
-    // }
-    // else{
-    //     if(1LL*2*n2 >=  9 - left){
-    //         cout << "YES" << endl;
+    //     if(maxi - mini > k || maxi == 0){
+    //         if(steps % 2 == 0)  cout << "Tom" << endl;
+    //         else                cout << "Jerry" << endl;
     //         return;
     //     }
+        
+    //     arr[distance(arr.begin(), ma)]--;
+    //     steps++;
     // }
 
-    // cout << "NO" << endl;
-
-    for(int i = 0; i <= min(10,n2); i++){
-        for(int j = 0; j <= min(10,n3); j++){
-            if((sum + i*2  + j*6)%9 == 0){
-                cout << "YES" << endl;
-                return;
-            }
-        }
-    }
-    cout << "NO" << endl;
 
 }
 
